@@ -1,0 +1,48 @@
+<div class="content">
+    <div class="profile-info">
+      <img [src]="profileImage" id="profileImage" alt="Profile Image">
+      <h3 id="userName">{{ userName }}</h3>
+      <div class="buttons">
+        <button class="edit-button" (click)="editProfile()">Edit</button>
+        <button class="edit-button" (click)="showBecomeChannelForm()">Become a Channel</button>
+      </div>
+      <div id="editProfileForm" [style.display]="editProfileFormVisible ? 'flex' : 'none'">
+        <input type="text" [(ngModel)]="editUserName" placeholder="Edit Name">
+        <input type="password" [(ngModel)]="editPassword" placeholder="Edit Password">
+        <input type="file" (change)="onFileChange($event)">
+        <button class="edit-button" (click)="saveProfile()">Save</button>
+      </div>
+      <div id="channelForm" class="channel-form" [style.display]="channelFormVisible ? 'flex' : 'none'">
+        <input type="text" [(ngModel)]="channelName" placeholder="Channel Name">
+        <input type="text" [(ngModel)]="channelDescription" placeholder="Channel Description">
+        <button (click)="saveChannel()">Save</button>
+      </div>
+    </div>
+    <div class="section">
+      <h4>Subscribed Channels</h4>
+      <div class="channel-list" id="subscribedChannels">
+        <div *ngFor="let channel of subscribedChannels">
+          <div class="channel">
+            <img [src]="channel.image" alt="{{ channel.name }}">
+            <h3>{{ channel.name }}</h3>
+            <p>{{ channel.description }}</p>
+            <div *ngIf="channel.isLive" class="live-indicator">LIVE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <h4>Followed Channels</h4>
+      <div class="channel-list" id="followedChannels">
+        <div *ngFor="let channel of followedChannels">
+          <div class="channel">
+            <img [src]="channel.image" alt="{{ channel.name }}">
+            <h3>{{ channel.name }}</h3>
+            <p>{{ channel.description }}</p>
+            <div *ngIf="channel.isLive" class="live-indicator">LIVE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

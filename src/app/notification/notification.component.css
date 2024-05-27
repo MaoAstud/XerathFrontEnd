@@ -1,0 +1,36 @@
+.main-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+  h2 {
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  .content {
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    overflow-y: auto;
+  }
+
+  .notification {
+    border: 2px solid #e4a4d8;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+  .notification img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 20px;
+  }
+
+  .notification h3 {
+    margin: 0 0 10px;
+  }

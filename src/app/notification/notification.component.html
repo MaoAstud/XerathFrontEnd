@@ -1,0 +1,11 @@
+<div class="content">
+    <h2>Notifications</h2>
+    <div id="notificationList">
+      <div *ngFor="let notification of notifications" class="notification" (click)="goToLive(notification.liveUrl)">
+        <img [src]="notification.image" alt="{{ notification.channelName }}">
+        <h3>{{ notification.channelName }} {{ notification.message }}</h3>
+        <p>at {{ notification.time }}</p>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,45 @@
+<body>
+  <div class="main-container">
+    <!-- Menú de Navegación -->
+    <div class="menu">
+      <div>
+        <h2>Xerath</h2>
+        <ul>
+          <li><a routerLink="/discover">Descubre</a></li>
+          <li><a routerLink="/profile">Perfil</a></li>
+          <li><a routerLink="/historial">Historial</a></li>
+          <li><a routerLink="/notificaciones">Notificaciones</a></li>
+        </ul>
+      </div>
+      <button (click)="llamarLogin()" class="logout-button">Cerrar Sesion</button>
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+    
+  </div>
+</body>
+  <script>
+    // // JavaScript para el menú
+    // document.querySelector('.logout-button').addEventListener('click', () => {
+    //   alert('Logging out...');
+    //   // Lógica de cierre de sesión aquí
+    // });
+
+    // // JavaScript para la barra de búsqueda
+    // document.getElementById('channelSearch').addEventListener('input', (event) => {
+    //   const searchTerm = event.target.value.toLowerCase();
+    //   const searchResults = document.getElementById('searchResults');
+
+    //   // Lógica de búsqueda aquí
+    //   searchResults.innerHTML = Results for "${searchTerm}";
+    // });
+
+    // // JavaScript para cargar todos los canales
+    // document.addEventListener('DOMContentLoaded', () => {
+    //   const allChannels = document.getElementById('allChannels');
+    //   // Lógica para cargar y mostrar todos los canales
+    //   allChannels.innerHTML = '<div class="channel">Channel 1</div><div class="channel">Channel 2</div>';
+    // });
+  </script>
+

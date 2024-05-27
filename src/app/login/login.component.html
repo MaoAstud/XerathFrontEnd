@@ -1,0 +1,88 @@
+<header>
+    <div class="logo">XERATH</div>
+</header>
+<body>
+    <div class="wrapper">
+        <div *ngIf="currentForm === 'login'">
+          <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+            <h1>Login</h1>
+            <div class="input-box">
+              <input formControlName="email" type="email" placeholder="Email">
+              <i class='bx bxs-envelope'></i>
+            </div>
+            <div class="input-box">
+              <input formControlName="password" type="password" placeholder="Password">
+              <i class='bx bxs-lock-alt'></i>
+            </div>
+            <div class="remember-forgot">
+              <a (click)="toggleForm('recovery')">Recuperar Contraseña</a>
+            </div>
+            <button type="submit" (click)="llamarPage()" routerLink="/discover" class="btn">Login</button>
+            <div class="register-link">
+              <p (click)="toggleForm('register')">¿No tiene cuenta?<a>Registrarse</a></p>
+            </div>
+          </form>
+        </div>
+      
+        <div *ngIf="currentForm === 'register'">
+          <form [formGroup]="registrationForm" (ngSubmit)="onRegisterSubmit()">
+            <h1>Registro</h1>
+            <div class="input-box">
+              <input formControlName="username" type="text" placeholder="Username">
+              <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+              <input formControlName="email" type="email" placeholder="Email">
+              <i class='bx bxs-envelope'></i>
+            </div>
+            <div class="input-box">
+              <input formControlName="password" type="password" placeholder="Password">
+              <i class='bx bxs-lock-alt'></i>
+            </div>
+            <div class="input-box">
+              <label class="checkbox-label">
+                <input type="checkbox" formControlName="isCreator" (change)="onToggleCreator()"> Registrarse como canal
+              </label>
+            </div>
+            <div *ngIf="isCreator" id="channelFields">
+              <div class="input-box">
+                <input formControlName="channelName" type="text" placeholder="Channel Name">
+                <i class='bx bxs-megaphone'></i>
+              </div>
+              <div class="input-box">
+                <input formControlName="channelDescription" type="text" placeholder="Channel Description">
+                <i class='bx bxs-info-circle'></i>
+              </div>
+            </div>
+            <div class="input-box">
+              <input type="file" (change)="onFileChange($event)">
+            </div>
+            <div class="image-preview" *ngIf="registrationForm.get('profileImage')?.value">
+              <img [src]="registrationForm.get('profileImage')?.value" alt="Image Preview">
+            </div>
+            <button type="submit" (click)="llamarPage()" routerLink="/discover" class="btn">Registrarse</button>
+            <div class="register-link">
+              <p (click)="toggleForm('login')">¿Ya tiene una cuenta? <a>Login</a></p>
+            </div>
+          </form>
+        </div>
+      
+        <div *ngIf="currentForm === 'recovery'">
+          <form [formGroup]="recoveryForm" (ngSubmit)="onRecoverySubmit()">
+            <h1>Recuperar Contraseña</h1>
+            <div class="input-box">
+              <input formControlName="email" type="email" placeholder="Email">
+              <i class='bx bxs-envelope'></i>
+            </div>
+            <button type="submit" (click)="toggleForm('login')" class="btn">Recuperar</button>
+            <div class="register-link">
+              <p (click)="toggleForm('login')">¿Recuerada su contraseña? <a>Login</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      
+
+    
+</body>

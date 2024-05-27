@@ -1,0 +1,34 @@
+<body>
+    
+
+<div class="content">
+    <div class="search-bar">
+      <input type="text" id="channelSearch" placeholder="Busca un canal" (input)="handleSearch()">
+    </div>
+    <div id="searchResults">
+      <div *ngFor="let channel of filteredChannels">
+        <div class="channel">
+          <img [src]="channel.image" alt="{{ channel.name }}">
+          <h3>{{ channel.name }}</h3>
+          <p>{{ channel.description }}</p>
+          <div *ngIf="channel.isLive" class="live-indicator">EN VIVO</div>
+          <button class="follow-button" (click)="followChannel(channel.name)">Seguir</button>
+        </div>
+      </div>
+    </div>
+    <div class="all-channels">
+      <h2>Descubre más canales</h2>
+      <div id="allChannels">
+        <div *ngFor="let channel of channels">
+          <div class="channel">
+            <img [src]="channel.image" alt="{{ channel.name }}">
+            <h3>{{ channel.name }}</h3>
+            <p>{{ channel.description }}</p>
+            <div *ngIf="channel.isLive" class="live-indicator">EN VIVO</div>
+            <button class="follow-button" (click)="followChannel(channel.name)">Seguir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

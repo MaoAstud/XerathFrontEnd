@@ -1,0 +1,124 @@
+.main-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+  h2 {
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  h3 {
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  h4 {
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  .content {
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    overflow-y: auto;
+  }
+
+  .profile-info img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+
+  .profile-info h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  .edit-button {
+    background: #e4a4d8;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .edit-button:hover {
+    background: #fff;
+    color: #e4a4d8;
+  }
+
+  .section {
+    margin-top: 20px;
+  }
+
+  .section h4 {
+    margin-bottom: 10px;
+  }
+
+  .channel-list .channel {
+    border: 2px solid #9b59b6;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .channel-list .channel img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 20px;
+  }
+
+  .channel-list .channel h3 {
+    margin: 0 0 10px;
+  }
+
+  .follow-button {
+    background: #fff;
+    color: #e4a4d8;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .follow-button:hover {
+    background: #e4a4d8;
+    color: #fff;
+  }
+
+  .channel-form {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+
+  .channel-form input,
+  .channel-form button {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .channel-form button {
+    background: #e4a4d8;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  .channel-form button:hover {
+    background: #fff;
+    color: #e4a4d8;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 10px;
+  }

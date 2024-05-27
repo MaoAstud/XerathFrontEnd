@@ -1,0 +1,12 @@
+<div class="content">
+    <h2>History</h2>
+    <div id="historyList">
+      <div *ngFor="let item of historyItems" class="history-item">
+        <img [src]="item.image" alt="{{ item.name }}">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.description }}</p>
+        <p>Watched at: {{ item.watchedAt }}</p>
+      </div>
+    </div>
+  </div>
+  
