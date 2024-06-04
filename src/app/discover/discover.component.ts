@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Service } from '../core/service.core';
 
 @Component({
   selector: 'app-discover',
@@ -6,29 +9,55 @@ import { Component } from '@angular/core';
   styleUrl: './discover.component.css'
 })
 export class DiscoverComponent {
-  channels: any[] = [
-    { name: 'Channel 1', description: 'Description for Channel 1', image: 'channel_image1.jpg', isLive: true },
-    { name: 'Channel 2', description: 'Description for Channel 2', image: 'channel_image2.jpg', isLive: false },
-    { name: 'Channel 3', description: 'Description for Channel 3', image: 'channel_image3.jpg', isLive: true },
-    // Añade más canales según sea necesario
-  ];
+  channels: any[] = [];
 
   filteredChannels: any[] = [...this.channels];
+  currentUser: any;
+  isAuthenticated: boolean | undefined;
+  constructor(private Service: Service,
+    private toastr: ToastrService,private router: Router){}
 
   ngOnInit(): void {
+    this.consultarCanales()
+    this.Service.currentUser.subscribe(user => {
+      this.currentUser = user;
+    });
+
+    this.Service.isAuthenticated.subscribe(isAuthenticated => {
+      this.isAuthenticated = isAuthenticated;
+    });
   }
 
   handleSearch(): void {
     const query = (document.getElementById('channelSearch') as HTMLInputElement).value.toLowerCase();
     this.filteredChannels = this.channels.filter(channel =>
-      channel.name.toLowerCase().includes(query) || 
-      channel.description.toLowerCase().includes(query)
+      channel.nombreCanal.toLowerCase().includes(query) || 
+      channel.descripcionCanal.toLowerCase().includes(query)
     );
   }
 
   followChannel(channelName: string): void {
-    alert(`Ahora estas siguiendo a ${channelName}`);
+    if(this.isAuthenticated){
+      this.toastr.success(`Ahora estas siguiendo a ${channelName}`);
+    }else{
+      this.toastr.info("Para seguir a canales crea tu cuenta o inicia sesión");
+    }
+    
   }
 
-
+  consultarCanales(): void {
+    this.Service.buscarCanales().subscribe(
+      response => {
+        if (response.canales) {
+          this.channels = response.canales;
+        } else {
+          // Mensaje de error si las credenciales son incorrectas
+          this.toastr.error(response.error.message);
+        }
+      },
+      error=>{
+        this.toastr.error(error.error.message);
+      }
+    );
+  }
 }

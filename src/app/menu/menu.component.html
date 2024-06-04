@@ -7,11 +7,19 @@
         <ul>
           <li><a routerLink="/discover">Descubre</a></li>
           <li><a routerLink="/profile">Perfil</a></li>
-          <li><a routerLink="/historial">Historial</a></li>
-          <li><a routerLink="/notificaciones">Notificaciones</a></li>
+          <div *ngIf="isAuthenticated">
+            <li><a routerLink="/historial">Historial</a></li>
+            <li><a routerLink="/notificaciones">Notificaciones</a></li>
+            <li><a routerLink="/channel">Empezar Live</a></li>
+          </div>
         </ul>
       </div>
-      <button (click)="llamarLogin()" class="logout-button">Cerrar Sesion</button>
+      <div *ngIf="isAuthenticated">
+        <button (click)="cerrarSesion()" class="logout-button">Cerrar Sesion</button>
+      </div>
+      <div *ngIf="!isAuthenticated">
+        <button (click)="llamarLogin()" class="logout-button">Iniciar Sesion</button>
+      </div>
     </div>
     <div class="content">
       <router-outlet></router-outlet>

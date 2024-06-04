@@ -1,1 +1,25 @@
-<p>channel works!</p>
+
+<body>
+  <div class="channel-creator" id="channelCreatorInterface">
+    <div class="channel-header">
+      <div class="channel-info">
+        <img id="channelCreatorImage" src="#" alt="Channel Image">
+        <div>
+          <h2 id="channelCreatorName">Channel Name</h2>
+          <p id="channelCreatorDescription">Channel Description</p>
+        </div>
+      </div>
+    </div>
+    <div class="live-stream">
+      <h2>Start a Live Stream</h2>
+      <div class="input-box">
+        <input type="text" placeholder="Stream Title" id="streamTitle">
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="Stream Description" id="streamDescription">
+      </div>
+      <button class="btn" (click)="startLiveStream()">Go Live</button>
+    </div>
+  </div>
+</body>
+

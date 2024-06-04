@@ -1,0 +1,158 @@
+body {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .live-container {
+    width: 80%;
+    margin-top: 20px;
+  }
+
+  .video-container {
+    border: 4px solid #e4a4d8;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .video-container video {
+    width: 100%;
+    height: 400px;
+    background: #000;
+  }
+
+  .info-container {
+    margin-bottom: 20px;
+  }
+
+  .comments-container {
+    border: 2px solid #9b59b6;
+    padding: 20px;
+    height: 300px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .comment {
+    margin-bottom: 10px;
+  }
+
+  .comment-input {
+    display: flex;
+    margin-top: 10px;
+  }
+
+  .comment-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+  }
+
+  .comment-input button {
+    background: #e4a4d8;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+
+  .comment-input button:hover {
+    background: #fff;
+    color: #e4a4d8;
+  }
+
+  .subscribe-button {
+    background: #e4a4d8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  .subscribe-button:hover {
+    background: #fff;
+    color: #e4a4d8;
+  }
+
+  .like-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #e4a4d8;
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+
+  .like-button:hover {
+    color: #fff;
+  }
+
+  .stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .token-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border: 2px solid #e4a4d8;
+    border-radius: 10px;
+    z-index: 2000;
+  }
+
+  .token-modal h2 {
+    margin-top: 0;
+  }
+
+  .token-modal input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #e4a4d8;
+  }
+
+  .token-modal button {
+    background: #e4a4d8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .token-modal button:hover {
+    background: #fff;
+    color: #e4a4d8;
+  }
+
+  .token-modal .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #e4a4d8;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .token-modal .close-button:hover {
+    color: #fff;
+  }

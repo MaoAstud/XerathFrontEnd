@@ -1,1 +1,34 @@
-<p>stream works!</p>
+
+<body>
+  <div class="live-container" id="liveContainer">
+    <div class="video-container">
+      <video id="liveVideo" controls></video>
+      <div class="info-container">
+        <h2 id="videoTitle">Live Video Title</h2>
+        <p id="videoDescription">Live Video Description</p>
+      </div>
+      <div class="stats">
+        <span id="viewersCount">Viewers: 0</span>
+        <span id="likesCount">Likes: 0</span>
+        <span id="commentsCount">Comments: 0</span>
+      </div>
+      <button class="subscribe-button" id="subscribeButton">Subscribe</button>
+      <button class="like-button" id="likeButton">💜</button>
+    </div>
+    <div class="comments-container" id="commentsContainer">
+      <!-- User comments will appear here -->
+    </div>
+    <div class="comment-input">
+      <input type="text" id="commentInput" placeholder="Write a comment...">
+      <button id="sendCommentButton"><img src="img/army_bomb_icon (2).png" alt="Send"></button>
+    </div>
+  </div>
+  <div class="token-modal" id="tokenModal">
+    <button class="close-button" id="closeModalButton">&times;</button>
+    <h2>Buy Tokens</h2>
+    <input type="number" id="tokenAmount" placeholder="Enter amount of tokens">
+    <button id="buyTokensButton">Buy Tokens</button>
+  </div>
+</body>
+
+

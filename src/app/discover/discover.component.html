@@ -8,11 +8,11 @@
     <div id="searchResults">
       <div *ngFor="let channel of filteredChannels">
         <div class="channel">
-          <img [src]="channel.image" alt="{{ channel.name }}">
-          <h3>{{ channel.name }}</h3>
-          <p>{{ channel.description }}</p>
+          <img xsrc="../assets/img/perfilNone.jpg" alt="{{ channel.name }}">
+          <h3>{{ channel.nombreCanal }}</h3>
+          <p>{{ channel.descripcionCanal }}</p>
           <div *ngIf="channel.isLive" class="live-indicator">EN VIVO</div>
-          <button class="follow-button" (click)="followChannel(channel.name)">Seguir</button>
+          <button class="follow-button" (click)="followChannel(channel.nombreCanal)">Seguir</button>
         </div>
       </div>
     </div>
@@ -21,11 +21,11 @@
       <div id="allChannels">
         <div *ngFor="let channel of channels">
           <div class="channel">
-            <img [src]="channel.image" alt="{{ channel.name }}">
-            <h3>{{ channel.name }}</h3>
-            <p>{{ channel.description }}</p>
+            <img src="../assets/img/perfilNone.jpg" alt="{{ channel.name }}">
+            <h3>{{ channel.nombreCanal }}</h3>
+            <p>{{ channel.descripcionCanal }}</p>
             <div *ngIf="channel.isLive" class="live-indicator">EN VIVO</div>
-            <button class="follow-button" (click)="followChannel(channel.name)">Seguir</button>
+            <button class="follow-button" (click)="followChannel(channel.nombreCanal)">Seguir</button>
           </div>
         </div>
       </div>

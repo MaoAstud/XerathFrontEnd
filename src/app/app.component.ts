@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'XERATH';
 
+  constructor(private titleService:Title) {
+    this.titleService.setTitle("Xerath Gaming");
+  }
   showLogin:boolean = false;
   showLanding:boolean = true;
   showPage:boolean = false;

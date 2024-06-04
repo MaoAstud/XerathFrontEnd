@@ -15,6 +15,11 @@ import { RouterLink } from '@angular/router';
 import { LandingComponent } from './landing/landing.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { Service } from './core/service.core';
+import { WebSocketService } from './core/webSocket.service';
+import { ViewerComponent } from './viewer/viewer.component';
 
 @NgModule({
   declarations: [
@@ -27,17 +32,23 @@ import { HttpClientModule } from '@angular/common/http';
     DiscoverComponent,
     HistoryComponent,
     NotificationComponent,
-    LandingComponent
+    LandingComponent,
+    ViewerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterLink,
     ReactiveFormsModule,
-    HttpClientModule ,
-    FormsModule
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule, // Requerido por ngx-toastr
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    Service,
+    WebSocketService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

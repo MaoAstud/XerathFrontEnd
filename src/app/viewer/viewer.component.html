@@ -1,0 +1,19 @@
+
+<body>
+  <div class="live-container">
+    <div class="video-container">
+      <video id="liveVideo" #videoElement autoplay controls></video>
+      <div class="info-container">
+        <h2 id="videoTitle">{{ nombreStream }}</h2>
+        <p id="videoDescription">{{ descripcionStream }}</p>
+      </div>
+    </div>
+    <div class="comments-container" id="commentsContainer">
+      <!-- User comments will appear here -->
+    </div>
+  </div>
+  <button class="end-live-button" (click)="startStream()">Start Stream</button>
+    <button class="end-live-button" (click)="stopStream()">Stop Stream</button>
+</body>
+
+

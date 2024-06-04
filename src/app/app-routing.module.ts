@@ -8,16 +8,18 @@ import { MenuComponent } from './menu/menu.component';
 import { NotificationComponent } from './notification/notification.component';
 import { ProfileComponent } from './profile/profile.component';
 import { StreamComponent } from './stream/stream.component';
+import { ViewerComponent } from './viewer/viewer.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'channel', component: ChannelComponent },
-  { path: 'stream', component: StreamComponent },
+  { path: 'stream/:id', component: StreamComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'discover', component: DiscoverComponent },
   { path: 'historial', component: HistoryComponent },
   { path: 'notificaciones', component: NotificationComponent },
+  { path: 'view/:nombre/:descripcion/:id', component: ViewerComponent },
 ];
 
 @NgModule({
