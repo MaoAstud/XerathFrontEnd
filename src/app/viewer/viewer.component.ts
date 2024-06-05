@@ -1,14 +1,13 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WebSocketService } from '../core/webSocket.service';
 
 @Component({
   selector: 'app-viewer',
   templateUrl: './viewer.component.html',
-  styleUrl: './viewer.component.css'
+  styleUrls: ['./viewer.component.css']  // 'styleUrl' should be 'styleUrls'
 })
-export class ViewerComponent {
-
+export class ViewerComponent implements AfterViewInit, OnDestroy {
   nombreStream!: string;
   descripcionStream!: string;
   canal!: string;
@@ -18,14 +17,18 @@ export class ViewerComponent {
 
   @ViewChild('videoElement') videoElement!: ElementRef<HTMLVideoElement>;
 
-  constructor(private websocketService: WebSocketService,private route: ActivatedRoute) {}
+  constructor(private websocketService: WebSocketService, private route: ActivatedRoute) {}
 
   ngAfterViewInit() {
     this.route.params.subscribe(params => {
       this.nombreStream = params['nombre'];
       this.descripcionStream = params['descripcion'];
       this.canal = params['id'];
+      this.initializeStream();
     });
+  }
+
+  private initializeStream() {
     const videoElement = this.videoElement.nativeElement;
     navigator.mediaDevices.getUserMedia({ video: true })
       .then((stream) => {
@@ -45,7 +48,7 @@ export class ViewerComponent {
 
   startStream() {
     if (this.mediaRecorder && this.mediaRecorder.state === 'inactive') {
-      this.ws = this.websocketService.connect('ws://localhost:9780',this.canal);
+      this.ws = this.websocketService.connect('ws://localhost:9780', this.canal);
       this.ws.onopen = () => {
         console.log('Connected to WebSocket server');
         this.mediaRecorder.start(100); // Start recording with 100ms interval for data availability
@@ -76,5 +79,4 @@ export class ViewerComponent {
   ngOnDestroy() {
     this.stopStream();
   }
-
 }

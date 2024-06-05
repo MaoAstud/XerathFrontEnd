@@ -20,6 +20,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { Service } from './core/service.core';
 import { WebSocketService } from './core/webSocket.service';
 import { ViewerComponent } from './viewer/viewer.component';
+import { PruebaComponent } from './prueba/prueba.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ViewerComponent } from './viewer/viewer.component';
     HistoryComponent,
     NotificationComponent,
     LandingComponent,
-    ViewerComponent
+    ViewerComponent,
+    PruebaComponent
   ],
   imports: [
     BrowserModule,

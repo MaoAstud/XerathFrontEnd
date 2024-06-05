@@ -9,7 +9,7 @@ import { WebSocketService } from '../core/webSocket.service';
 })
 export class StreamComponent {
   private mediaSource!: MediaSource;
-  private sourceBuffer!: SourceBuffer;
+  sourceBuffer!: SourceBuffer;
   private ws!: WebSocket;
   private channelId!: string;
   
@@ -44,13 +44,6 @@ export class StreamComponent {
       };
     });
   }
-  // ngOnInit(): void {
-  //   // Simular la carga inicial de la base de datos
-  //   this.loadInitialData();
-
-  //   // Simular incremento de viewers cada 5 segundos
-  //   setInterval(() => this.incrementViewers(), 5000);
-  // }
 
   loadInitialData(): void {
     // Aquí llamarías a tu API para obtener los datos iniciales

@@ -13,6 +13,7 @@
           <p>{{ channel.descripcionCanal }}</p>
           <div *ngIf="channel.isLive" class="live-indicator">EN VIVO</div>
           <button class="follow-button" (click)="followChannel(channel.nombreCanal)">Seguir</button>
+          <button class="follow-button" routerLink="/stream/{{ channel.idCanal }}">Ver Stream</button>
         </div>
       </div>
     </div>
@@ -26,6 +27,7 @@
             <p>{{ channel.descripcionCanal }}</p>
             <div *ngIf="channel.isLive" class="live-indicator">EN VIVO</div>
             <button class="follow-button" (click)="followChannel(channel.nombreCanal)">Seguir</button>
+            <button class="follow-button" routerLink="/stream/{{ channel.idCanal }}">Ver Stream</button>
           </div>
         </div>
       </div>
