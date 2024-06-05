@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Run Unit Tests') {
             steps {
-                bat './node_modules/.bin/karma start --single-run'
+                bat 'ng test --watch=false'
             }
         }
     }
